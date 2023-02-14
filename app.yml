@@ -6,3 +6,9 @@ handlers:
   - url: /(.*)$
     static_files: build/\1
     upload: build/(.*)
+  - url: /.*
+    script: auto
+    http_headers:
+      Access-Control-Allow-Origin: "https://frontend-reactjs.web.app/"
+      Access-Control-Allow-Methods: GET, POST, OPTIONS
+      Access-Control-Allow-Headers: *
