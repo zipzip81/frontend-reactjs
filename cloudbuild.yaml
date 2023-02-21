@@ -6,7 +6,6 @@ steps:
       - |
         npm install
         npm run build
-        
  - name: 'Deploy to Firebase Hosting'
     entrypoint: 'bash'
     args:
