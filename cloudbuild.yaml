@@ -1,9 +1,14 @@
 steps:
-  # Install dependencies and build the ReactJS code.
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
-  # Deploy to Firebase Hosting.
-  - name: 'gcr.io/$PROJECT_ID/firebase'
-    args: ['deploy', '--project=$PROJECT_ID', '--only', 'hosting']
+  - name: node:14.17.6
+    entrypoint: sh
+    args:
+      - -c
+      - |
+        npm install
+        npm run build
+  - name: 'gcr.io/cloud-builders/firebase'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        firebase deploy --only hosting
