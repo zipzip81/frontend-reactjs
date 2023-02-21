@@ -7,7 +7,7 @@ function App() {
   const [message, setMessage] = useState('');
 
   const handleClick = () => {
-    fetch(`https://service-helloworld-1.as.r.appspot.com/api/v1/hello/${name}`)
+    fetch(`https://dev-backend-springboot.as.r.appspot.com/api/v1/hello/${name}`)
       .then(response => response.json())
       .then(data => setMessage(data.message));
   };
