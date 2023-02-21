@@ -1,0 +1,18 @@
+steps:
+  # Install Node.js and NPM.
+  - name: 'node'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        apt-get update && apt-get install -y curl
+        curl -sL https://deb.nodesource.com/setup_14.x | bash -
+        apt-get install -y nodejs
+  # Install dependencies and build the ReactJS code.
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+  # Deploy to Firebase Hosting.
+  - name: 'gcr.io/$PROJECT_ID/firebase'
+    args: ['deploy', '--project=$PROJECT_ID', '--only', 'hosting']
