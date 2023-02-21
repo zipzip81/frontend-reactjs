@@ -6,9 +6,10 @@ steps:
       - |
         npm install
         npm run build
-  - name: 'gcr.io/cloud-builders/firebase'
+  - name: 'firebase'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
+        npm install -g firebase-tools
         firebase deploy --only hosting
