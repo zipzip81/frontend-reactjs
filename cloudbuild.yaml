@@ -5,5 +5,5 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
   # Deploy to Firebase Hosting.
-  - name: 'gcr.io/910471305192/firebase'
+  - name: 'gcr.io/$PROJECT_ID/firebase'
     args: ['deploy', '--project=dev-frontend-reactjs', '--only', 'hosting']
