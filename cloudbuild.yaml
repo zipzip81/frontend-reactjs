@@ -1,13 +1,9 @@
 steps:
-  - name: node:14.17.6
-    entrypoint: sh
-    args:
-      - -c
-      - |
-        npm install
-        npm run build
-
-  - name: bash
-    script: |
-        npm install -g firebase-tools
-        firebase deploy --token=$FIREBASE_TOKEN --only hosting
+- name: node
+  entrypoint: npm
+  args: ['install']
+- name: node
+  entrypoint: npm
+  args: ['run', 'build']
+- name: gcr.io/$PROJECT_ID/firebase
+  args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
