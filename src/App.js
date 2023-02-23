@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import { Button, TextField } from "@material-ui/core";
 
 function App() {
   const [name, setName] = useState('');
@@ -14,10 +14,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World! BBBBBBBCCCSDSDASDASD</h1>
+      <h1>Hello World!</h1>
       <input type="text" value={name} onChange={e => setName(e.target.value)} />
       <button onClick={handleClick}>Submit</button>
       <p>{message}</p>
+
+      <TextField label="Name" variant="outlined" onChange={e => setName(e.target.value)}/>
+      <Button variant="contained" color="primary" onClick={handleClick}>
+        Submit
+      </Button>
     </div>
   );
 }
