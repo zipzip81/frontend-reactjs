@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Button, TextField } from "@material-ui/core";
 
 function App() {
   const [name, setName] = useState('');
@@ -18,11 +17,6 @@ function App() {
       <input type="text" value={name} onChange={e => setName(e.target.value)} />
       <button onClick={handleClick}>Submit</button>
       <p>{message}</p>
-
-      <TextField label="Name" variant="outlined" onChange={e => setName(e.target.value)}/>
-      <Button variant="contained" color="primary" onClick={handleClick}>
-        Submit
-      </Button>
     </div>
   );
 }
